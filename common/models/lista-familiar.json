@@ -1,8 +1,8 @@
 {
   "name": "ListaFamiliar",
+  "plural": "ListasFamiliares",
   "base": "PersistedModel",
   "idInjection": true,
-  "plural":"ListasFamiliares",
   "options": {
     "validateUpsert": true
   },
@@ -13,7 +13,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "productos": {
+      "type": "hasMany",
+      "model": "Producto",
+      "foreignKey": "owner"
+    },
+    "usuarios": {
+      "type": "hasMany",
+      "model": "Usuario",
+      "foreignKey": "owner"
+    }
+  },
   "acls": [],
   "methods": {}
 }
